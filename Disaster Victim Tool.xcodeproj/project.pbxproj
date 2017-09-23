@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D0888801F76A6E300101B82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D08887F1F76A6E300101B82 /* MapKit.framework */; };
+		3D0888821F76A6F500101B82 /* VictimsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0888811F76A6F500101B82 /* VictimsMapViewController.swift */; };
+		3D0888841F76CA4600101B82 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0888831F76CA4600101B82 /* DatabaseManager.swift */; };
+		3D3950D81F7624CF00459720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3950D71F7624CF00459720 /* AppDelegate.swift */; };
+		3D3950DA1F7624CF00459720 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3950D91F7624CF00459720 /* ViewController.swift */; };
+		3D3950DD1F7624D000459720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3950DB1F7624D000459720 /* Main.storyboard */; };
+		3D3950DF1F7624D000459720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D3950DE1F7624D000459720 /* Assets.xcassets */; };
+		3D3950E21F7624D000459720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3950E01F7624D000459720 /* LaunchScreen.storyboard */; };
+		3D3950ED1F7624D000459720 /* Disaster_Victim_ToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3950EC1F7624D000459720 /* Disaster_Victim_ToolTests.swift */; };
+		3D3950F81F7624D000459720 /* Disaster_Victim_ToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3950F71F7624D000459720 /* Disaster_Victim_ToolUITests.swift */; };
+		3D3951071F76331400459720 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3951061F76331400459720 /* MenuButtonView.swift */; };
+		3D3951081F7633D400459720 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3951051F762D9400459720 /* map@2x.png */; };
+		3D39510A1F76678900459720 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3951091F76678900459720 /* IntroViewController.swift */; };
+		3D39510C1F76735700459720 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D39510B1F76681F00459720 /* heart@2x.png */; };
+		3D39510E1F76833400459720 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39510D1F76833400459720 /* Global.swift */; };
+		3D3951101F76837100459720 /* SqueezeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39510F1F76837100459720 /* SqueezeButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D3950E91F7624D000459720 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D3950CC1F7624CF00459720 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D3950D31F7624CF00459720;
+			remoteInfo = "Disaster Victim Tool";
+		};
+		3D3950F41F7624D000459720 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D3950CC1F7624CF00459720 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D3950D31F7624CF00459720;
+			remoteInfo = "Disaster Victim Tool";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D08887F1F76A6E300101B82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D0888811F76A6F500101B82 /* VictimsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictimsMapViewController.swift; sourceTree = "<group>"; };
+		3D0888831F76CA4600101B82 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		3D3950D41F7624CF00459720 /* Disaster Victim Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disaster Victim Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3950D71F7624CF00459720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3D3950D91F7624CF00459720 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D3950DC1F7624D000459720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D3950DE1F7624D000459720 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D3950E11F7624D000459720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D3950E31F7624D000459720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D3950E81F7624D000459720 /* Disaster Victim ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disaster Victim ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3950EC1F7624D000459720 /* Disaster_Victim_ToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disaster_Victim_ToolTests.swift; sourceTree = "<group>"; };
+		3D3950EE1F7624D000459720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D3950F31F7624D000459720 /* Disaster Victim ToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disaster Victim ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3950F71F7624D000459720 /* Disaster_Victim_ToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disaster_Victim_ToolUITests.swift; sourceTree = "<group>"; };
+		3D3950F91F7624D000459720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D3951051F762D9400459720 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
+		3D3951061F76331400459720 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
+		3D3951091F76678900459720 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		3D39510B1F76681F00459720 /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart@2x.png"; sourceTree = "<group>"; };
+		3D39510D1F76833400459720 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		3D39510F1F76837100459720 /* SqueezeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqueezeButton.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D3950D11F7624CF00459720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0888801F76A6E300101B82 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D3950E51F7624D000459720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D3950F01F7624D000459720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D08887E1F76A6E300101B82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D08887F1F76A6E300101B82 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D3950CB1F7624CF00459720 = {
+			isa = PBXGroup;
+			children = (
+				3D3950D61F7624CF00459720 /* Disaster Victim Tool */,
+				3D3950EB1F7624D000459720 /* Disaster Victim ToolTests */,
+				3D3950F61F7624D000459720 /* Disaster Victim ToolUITests */,
+				3D3950D51F7624CF00459720 /* Products */,
+				3D08887E1F76A6E300101B82 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3D3950D51F7624CF00459720 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D3950D41F7624CF00459720 /* Disaster Victim Tool.app */,
+				3D3950E81F7624D000459720 /* Disaster Victim ToolTests.xctest */,
+				3D3950F31F7624D000459720 /* Disaster Victim ToolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D3950D61F7624CF00459720 /* Disaster Victim Tool */ = {
+			isa = PBXGroup;
+			children = (
+				3D3950D71F7624CF00459720 /* AppDelegate.swift */,
+				3D3950D91F7624CF00459720 /* ViewController.swift */,
+				3D0888811F76A6F500101B82 /* VictimsMapViewController.swift */,
+				3D3951091F76678900459720 /* IntroViewController.swift */,
+				3D3950DB1F7624D000459720 /* Main.storyboard */,
+				3D0888831F76CA4600101B82 /* DatabaseManager.swift */,
+				3D3951061F76331400459720 /* MenuButtonView.swift */,
+				3D39510D1F76833400459720 /* Global.swift */,
+				3D39510F1F76837100459720 /* SqueezeButton.swift */,
+				3D39510B1F76681F00459720 /* heart@2x.png */,
+				3D3951051F762D9400459720 /* map@2x.png */,
+				3D3950DE1F7624D000459720 /* Assets.xcassets */,
+				3D3950E01F7624D000459720 /* LaunchScreen.storyboard */,
+				3D3950E31F7624D000459720 /* Info.plist */,
+			);
+			path = "Disaster Victim Tool";
+			sourceTree = "<group>";
+		};
+		3D3950EB1F7624D000459720 /* Disaster Victim ToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D3950EC1F7624D000459720 /* Disaster_Victim_ToolTests.swift */,
+				3D3950EE1F7624D000459720 /* Info.plist */,
+			);
+			path = "Disaster Victim ToolTests";
+			sourceTree = "<group>";
+		};
+		3D3950F61F7624D000459720 /* Disaster Victim ToolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3D3950F71F7624D000459720 /* Disaster_Victim_ToolUITests.swift */,
+				3D3950F91F7624D000459720 /* Info.plist */,
+			);
+			path = "Disaster Victim ToolUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D3950D31F7624CF00459720 /* Disaster Victim Tool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D3950FC1F7624D000459720 /* Build configuration list for PBXNativeTarget "Disaster Victim Tool" */;
+			buildPhases = (
+				3D3950D01F7624CF00459720 /* Sources */,
+				3D3950D11F7624CF00459720 /* Frameworks */,
+				3D3950D21F7624CF00459720 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Disaster Victim Tool";
+			productName = "Disaster Victim Tool";
+			productReference = 3D3950D41F7624CF00459720 /* Disaster Victim Tool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D3950E71F7624D000459720 /* Disaster Victim ToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D3950FF1F7624D000459720 /* Build configuration list for PBXNativeTarget "Disaster Victim ToolTests" */;
+			buildPhases = (
+				3D3950E41F7624D000459720 /* Sources */,
+				3D3950E51F7624D000459720 /* Frameworks */,
+				3D3950E61F7624D000459720 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D3950EA1F7624D000459720 /* PBXTargetDependency */,
+			);
+			name = "Disaster Victim ToolTests";
+			productName = "Disaster Victim ToolTests";
+			productReference = 3D3950E81F7624D000459720 /* Disaster Victim ToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3D3950F21F7624D000459720 /* Disaster Victim ToolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D3951021F7624D000459720 /* Build configuration list for PBXNativeTarget "Disaster Victim ToolUITests" */;
+			buildPhases = (
+				3D3950EF1F7624D000459720 /* Sources */,
+				3D3950F01F7624D000459720 /* Frameworks */,
+				3D3950F11F7624D000459720 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D3950F51F7624D000459720 /* PBXTargetDependency */,
+			);
+			name = "Disaster Victim ToolUITests";
+			productName = "Disaster Victim ToolUITests";
+			productReference = 3D3950F31F7624D000459720 /* Disaster Victim ToolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D3950CC1F7624CF00459720 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Omar Al-Ejel";
+				TargetAttributes = {
+					3D3950D31F7624CF00459720 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					3D3950E71F7624D000459720 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3D3950D31F7624CF00459720;
+					};
+					3D3950F21F7624D000459720 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3D3950D31F7624CF00459720;
+					};
+				};
+			};
+			buildConfigurationList = 3D3950CF1F7624CF00459720 /* Build configuration list for PBXProject "Disaster Victim Tool" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D3950CB1F7624CF00459720;
+			productRefGroup = 3D3950D51F7624CF00459720 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D3950D31F7624CF00459720 /* Disaster Victim Tool */,
+				3D3950E71F7624D000459720 /* Disaster Victim ToolTests */,
+				3D3950F21F7624D000459720 /* Disaster Victim ToolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D3950D21F7624CF00459720 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D3950E21F7624D000459720 /* LaunchScreen.storyboard in Resources */,
+				3D3951081F7633D400459720 /* map@2x.png in Resources */,
+				3D39510C1F76735700459720 /* heart@2x.png in Resources */,
+				3D3950DF1F7624D000459720 /* Assets.xcassets in Resources */,
+				3D3950DD1F7624D000459720 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D3950E61F7624D000459720 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D3950F11F7624D000459720 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D3950D01F7624CF00459720 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0888841F76CA4600101B82 /* DatabaseManager.swift in Sources */,
+				3D3951071F76331400459720 /* MenuButtonView.swift in Sources */,
+				3D0888821F76A6F500101B82 /* VictimsMapViewController.swift in Sources */,
+				3D3950DA1F7624CF00459720 /* ViewController.swift in Sources */,
+				3D3951101F76837100459720 /* SqueezeButton.swift in Sources */,
+				3D3950D81F7624CF00459720 /* AppDelegate.swift in Sources */,
+				3D39510E1F76833400459720 /* Global.swift in Sources */,
+				3D39510A1F76678900459720 /* IntroViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D3950E41F7624D000459720 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D3950ED1F7624D000459720 /* Disaster_Victim_ToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D3950EF1F7624D000459720 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D3950F81F7624D000459720 /* Disaster_Victim_ToolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D3950EA1F7624D000459720 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D3950D31F7624CF00459720 /* Disaster Victim Tool */;
+			targetProxy = 3D3950E91F7624D000459720 /* PBXContainerItemProxy */;
+		};
+		3D3950F51F7624D000459720 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D3950D31F7624CF00459720 /* Disaster Victim Tool */;
+			targetProxy = 3D3950F41F7624D000459720 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3D3950DB1F7624D000459720 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D3950DC1F7624D000459720 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3D3950E01F7624D000459720 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D3950E11F7624D000459720 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D3950FA1F7624D000459720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-Objc";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3D3950FB1F7624D000459720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-Objc";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D3950FD1F7624D000459720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DL7989H5XT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Disaster Victim Tool/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-Objc";
+				PRODUCT_BUNDLE_IDENTIFIER = "omaralejel.Disaster-Victim-Tool";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D3950FE1F7624D000459720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DL7989H5XT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Disaster Victim Tool/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-Objc";
+				PRODUCT_BUNDLE_IDENTIFIER = "omaralejel.Disaster-Victim-Tool";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3D3951001F7624D000459720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DL7989H5XT;
+				INFOPLIST_FILE = "Disaster Victim ToolTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "omaralejel.Disaster-Victim-ToolTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Disaster Victim Tool.app/Disaster Victim Tool";
+			};
+			name = Debug;
+		};
+		3D3951011F7624D000459720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DL7989H5XT;
+				INFOPLIST_FILE = "Disaster Victim ToolTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "omaralejel.Disaster-Victim-ToolTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Disaster Victim Tool.app/Disaster Victim Tool";
+			};
+			name = Release;
+		};
+		3D3951031F7624D000459720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DL7989H5XT;
+				INFOPLIST_FILE = "Disaster Victim ToolUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "omaralejel.Disaster-Victim-ToolUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Disaster Victim Tool";
+			};
+			name = Debug;
+		};
+		3D3951041F7624D000459720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DL7989H5XT;
+				INFOPLIST_FILE = "Disaster Victim ToolUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "omaralejel.Disaster-Victim-ToolUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Disaster Victim Tool";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D3950CF1F7624CF00459720 /* Build configuration list for PBXProject "Disaster Victim Tool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D3950FA1F7624D000459720 /* Debug */,
+				3D3950FB1F7624D000459720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D3950FC1F7624D000459720 /* Build configuration list for PBXNativeTarget "Disaster Victim Tool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D3950FD1F7624D000459720 /* Debug */,
+				3D3950FE1F7624D000459720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D3950FF1F7624D000459720 /* Build configuration list for PBXNativeTarget "Disaster Victim ToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D3951001F7624D000459720 /* Debug */,
+				3D3951011F7624D000459720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D3951021F7624D000459720 /* Build configuration list for PBXNativeTarget "Disaster Victim ToolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D3951031F7624D000459720 /* Debug */,
+				3D3951041F7624D000459720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D3950CC1F7624CF00459720 /* Project object */;
+}
