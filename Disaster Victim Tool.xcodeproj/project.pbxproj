@@ -10,6 +10,8 @@
 		3D0888801F76A6E300101B82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D08887F1F76A6E300101B82 /* MapKit.framework */; };
 		3D0888821F76A6F500101B82 /* VictimsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0888811F76A6F500101B82 /* VictimsMapViewController.swift */; };
 		3D0888841F76CA4600101B82 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0888831F76CA4600101B82 /* DatabaseManager.swift */; };
+		3D0888B41F76EB5600101B82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0888B31F76EA3700101B82 /* GoogleService-Info.plist */; };
+		3D0888B61F7727CD00101B82 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0888B51F7727CD00101B82 /* Location.swift */; };
 		3D3950D81F7624CF00459720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3950D71F7624CF00459720 /* AppDelegate.swift */; };
 		3D3950DA1F7624CF00459720 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3950D91F7624CF00459720 /* ViewController.swift */; };
 		3D3950DD1F7624D000459720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3950DB1F7624D000459720 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		3D08887F1F76A6E300101B82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3D0888811F76A6F500101B82 /* VictimsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictimsMapViewController.swift; sourceTree = "<group>"; };
 		3D0888831F76CA4600101B82 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		3D0888B31F76EA3700101B82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D0888B51F7727CD00101B82 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3D3950D41F7624CF00459720 /* Disaster Victim Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disaster Victim Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3950D71F7624CF00459720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D3950D91F7624CF00459720 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				3D3950D71F7624CF00459720 /* AppDelegate.swift */,
+				3D0888B51F7727CD00101B82 /* Location.swift */,
 				3D3950D91F7624CF00459720 /* ViewController.swift */,
 				3D0888811F76A6F500101B82 /* VictimsMapViewController.swift */,
 				3D3951091F76678900459720 /* IntroViewController.swift */,
@@ -145,6 +150,7 @@
 				3D3951051F762D9400459720 /* map@2x.png */,
 				3D3950DE1F7624D000459720 /* Assets.xcassets */,
 				3D3950E01F7624D000459720 /* LaunchScreen.storyboard */,
+				3D0888B31F76EA3700101B82 /* GoogleService-Info.plist */,
 				3D3950E31F7624D000459720 /* Info.plist */,
 			);
 			path = "Disaster Victim Tool";
@@ -288,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3950E21F7624D000459720 /* LaunchScreen.storyboard in Resources */,
+				3D0888B41F76EB5600101B82 /* GoogleService-Info.plist in Resources */,
 				3D3951081F7633D400459720 /* map@2x.png in Resources */,
 				3D39510C1F76735700459720 /* heart@2x.png in Resources */,
 				3D3950DF1F7624D000459720 /* Assets.xcassets in Resources */,
@@ -368,6 +375,7 @@
 				3D3951071F76331400459720 /* MenuButtonView.swift in Sources */,
 				3D0888821F76A6F500101B82 /* VictimsMapViewController.swift in Sources */,
 				3D3950DA1F7624CF00459720 /* ViewController.swift in Sources */,
+				3D0888B61F7727CD00101B82 /* Location.swift in Sources */,
 				3D3951101F76837100459720 /* SqueezeButton.swift in Sources */,
 				3D3950D81F7624CF00459720 /* AppDelegate.swift in Sources */,
 				3D39510E1F76833400459720 /* Global.swift in Sources */,

@@ -116,7 +116,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="United States" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjA-IZ-MLe">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="United States" placeholder="Country" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FjA-IZ-MLe">
                                 <rect key="frame" x="16" y="156" width="343" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="WQa-ar-ctq"/>
@@ -125,13 +125,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kyj-QD-OAm">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kyj-QD-OAm">
                                 <rect key="frame" x="16" y="223" width="343" height="43"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CzO-nH-r9P">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CzO-nH-r9P">
                                 <rect key="frame" x="16" y="290" width="343" height="43"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -143,20 +143,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIW-WH-czU" customClass="SqueezeButton" customModule="Disaster_Victim_Tool" customModuleProvider="target">
-                                <rect key="frame" x="16" y="602" width="101" height="45"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="kaN-UJ-AKL"/>
-                                    <constraint firstAttribute="width" constant="101" id="uNo-el-EpH"/>
-                                </constraints>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.93586832284927368" green="0.15495780110359192" blue="0.15751126408576965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipPressed:" destination="P9f-eX-enS" eventType="touchUpInside" id="M9b-w3-RkP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0p-v8-9ze" customClass="SqueezeButton" customModule="Disaster_Victim_Tool" customModuleProvider="target">
                                 <rect key="frame" x="258" y="602" width="101" height="45"/>
                                 <color key="backgroundColor" red="0.93586832279999999" green="0.15495780109999999" blue="0.15751126409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -172,7 +158,7 @@
                                     <segue destination="RCs-bh-eGX" kind="show" identifier="showMainViewController" id="meU-51-WF1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Context (i.e. North Campus) " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y1o-gk-Ner">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Context (i.e. North Campus) " textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y1o-gk-Ner">
                                 <rect key="frame" x="16" y="357" width="343" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="KkX-Dc-mnh"/>
@@ -196,14 +182,12 @@
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="R0p-v8-9ze" secondAttribute="trailing" constant="16" id="ZTt-ry-PK9"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="bottom" secondItem="CzO-nH-r9P" secondAttribute="bottom" constant="334" id="ZmU-Sz-ppW"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="CzO-nH-r9P" secondAttribute="trailing" constant="16" id="avH-P9-DFf"/>
-                            <constraint firstItem="kIW-WH-czU" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="eJK-l2-oGN"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="Kyj-QD-OAm" secondAttribute="trailing" constant="16" id="gAY-9b-ZZI"/>
                             <constraint firstItem="Kyj-QD-OAm" firstAttribute="height" secondItem="FjA-IZ-MLe" secondAttribute="height" id="jwd-XN-z36"/>
                             <constraint firstItem="CzO-nH-r9P" firstAttribute="top" secondItem="Kyj-QD-OAm" secondAttribute="bottom" constant="24" id="kyn-GE-nkx"/>
                             <constraint firstItem="y1o-gk-Ner" firstAttribute="top" secondItem="CzO-nH-r9P" secondAttribute="bottom" constant="24" id="lws-8x-e8d"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="FjA-IZ-MLe" secondAttribute="trailing" constant="16" id="oGz-yq-Me0"/>
                             <constraint firstItem="y1o-gk-Ner" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="rD3-gu-818"/>
-                            <constraint firstItem="ioy-UJ-QX5" firstAttribute="bottom" secondItem="kIW-WH-czU" secondAttribute="bottom" constant="20" id="tmX-kL-rk4"/>
                             <constraint firstItem="CzO-nH-r9P" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="uSM-mA-hdf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioy-UJ-QX5"/>
@@ -214,7 +198,6 @@
                         <outlet property="countryTextField" destination="FjA-IZ-MLe" id="SLE-ds-7PI"/>
                         <outlet property="doneButton" destination="R0p-v8-9ze" id="gph-qx-g7D"/>
                         <outlet property="inputLabel" destination="7MF-ZR-z36" id="WFp-YG-j5N"/>
-                        <outlet property="skipButton" destination="kIW-WH-czU" id="g1O-Ab-BLs"/>
                         <outlet property="stateTextField" destination="Kyj-QD-OAm" id="blu-1g-po2"/>
                     </connections>
                 </viewController>
@@ -258,11 +241,13 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tvT-Mb-BZi">
                                 <rect key="frame" x="16" y="391" width="343" height="29"/>
                                 <segments>
-                                    <segment title="All"/>
-                                    <segment title="Safe"/>
-                                    <segment title="SOS"/>
+                                    <segment title="Buildings"/>
+                                    <segment title="People"/>
                                 </segments>
                                 <color key="tintColor" red="0.93586832279999999" green="0.15495780109999999" blue="0.15751126409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="mapSegmentChanged:" destination="RCs-bh-eGX" eventType="valueChanged" id="kgG-W9-iRA"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,8 +270,10 @@
                     <connections>
                         <outlet property="backButton" destination="xJP-m2-ZvM" id="oNn-i4-HkR"/>
                         <outlet property="filterSegmentControl" destination="tvT-Mb-BZi" id="IUH-LB-5EK"/>
+                        <outlet property="mapTypeSegment" destination="tvT-Mb-BZi" id="ZgY-Jd-SBX"/>
                         <outlet property="mapView" destination="8wk-4O-B4v" id="Vtu-Gk-Vtb"/>
                         <outlet property="searchDisplayController" destination="tjg-Bw-oTE" id="UhT-ej-ywj"/>
+                        <outlet property="tableView" destination="7PY-Gf-7yR" id="kN2-3y-i1q"/>
                         <outlet property="victimsTableView" destination="7PY-Gf-7yR" id="xYs-8C-JSZ"/>
                     </connections>
                 </viewController>

@@ -9,30 +9,56 @@
 import UIKit
 import MapKit
 
-class VictimsMapViewController: UIViewController {
+class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: SqueezeButton!
     @IBOutlet weak var filterSegmentControl: UISegmentedControl!
     
+    @IBOutlet weak var mapTypeSegment: UISegmentedControl!
     @IBOutlet weak var victimsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         backButton.setBordered()
-
-//        // Do any additional setup after loading the view.
-//        let clPlacemark = CLPlacemark()
-//        clPlacemark.locality = "city"
-////        clPlacemark.subLocality =
-//        clPlacemark.country = country
-//        clPlacemark.administrativeArea = state
-//        let placemark = MKPlacemark(placemark: clPlacemark)
-//        let x = placemark.coordinate
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        mapView.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "annotationId")
+        DatabaseManager.sharedInstance.mapController = self
+        DatabaseManager.sharedInstance.setupDatabaseListener(buildings: true)
         
+        mapView.layer.cornerRadius = 10
+        mapView.layer.masksToBounds = true
+    
         let location = "\(context), \(city), \(state), \(country)"
+        
+        getRegion(fromString: location) { (region: MKCoordinateRegion) in
+            var _region = region
+            let spanLevel: Double = context != "" ? 0.03 : 0.5
+            _region.span = MKCoordinateSpan(latitudeDelta: spanLevel, longitudeDelta: spanLevel)
+            self.mapView.setRegion(_region, animated: true)
+        }
+
+        mapView.delegate = self
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    
+    
+    @IBAction func mapSegmentChanged(_ sender: UISegmentedControl) {
+        tableView.reloadData()
+        if sender.selectedSegmentIndex == 1 {
+            mapView.removeAnnotations(mapView.annotations)
+        }
+        
+        DatabaseManager.sharedInstance.setupDatabaseListener(buildings: sender.selectedSegmentIndex == 0)
+    }
+    func getRegion(fromString str: String, block: @escaping (_ region: MKCoordinateRegion) -> ()) {
         let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(location) { (placemarks, error) in
+        geoCoder.geocodeAddressString(str) { (placemarks, error) in
             if let clPlacemark = placemarks?[0] {
                 let placemark = MKPlacemark(placemark: clPlacemark)
                 var region = self.mapView.region
@@ -41,26 +67,56 @@ class VictimsMapViewController: UIViewController {
                 region.center.longitude =
                     (placemark.location?.coordinate.longitude)!
                 
-                let spanLevel: Double = context != "" ? 0.03 : 0.5
-                region.span = MKCoordinateSpan(latitudeDelta: spanLevel, longitudeDelta: spanLevel)
-                self.mapView.setRegion(region, animated: true)
+                block(region)
             }
-            
         }
-        
-//        let cam = MKMapCamera(lookingAtCenter: <#T##CLLocationCoordinate2D#>, fromEyeCoordinate: <#T##CLLocationCoordinate2D#>, eyeAltitude: <#T##CLLocationDistance#>)
-//        mapView.setCamera(<#T##camera: MKMapCamera##MKMapCamera#>, animated: <#T##Bool#>)
     }
 
     @IBAction func backPressed(_ sender: Any) {
+        DatabaseManager.sharedInstance.mapController = nil
+    }
+
+    func addLocation(locationString: String) {
+        if filterSegmentControl.selectedSegmentIndex == 0 {
+            let rank = DatabaseManager.sharedInstance.locationsRatings[locationString]
+            
+            getRegion(fromString: locationString) { (region: MKCoordinateRegion) in
+                let newAnnotation = Location(ranking: rank!, coordinate: region.center, locStr: locationString)
+                print("we now have a region!")
+                DispatchQueue.main.async {
+                    self.mapView.addAnnotation(newAnnotation)
+                }
+                
+            }
+            
+            tableView.reloadData()
+        }
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is Location {
+            var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationId")
+            if pin == nil {
+                pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationId")
+            }
+
+            pin!.canShowCallout = true
+            pin!.isDraggable = false
+
+            return pin
+        }
+        return nil
     }
     
-
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        view.canShowCallout =
+//    }
+    
+    func updateLocationInfo(locationString: String) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -70,5 +126,42 @@ class VictimsMapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //////// TABLES
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if filterSegmentControl.selectedSegmentIndex == 0 {
+            return DatabaseManager.sharedInstance.locationsRatings.count
+        } else {
+            return 0 // change
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        if filterSegmentControl.selectedSegmentIndex == 0 {
+            //buildings mode
+            let text = Array(DatabaseManager.sharedInstance.locationsRatings.keys)[indexPath.row]
+            cell.textLabel?.text = text
+        } else {
+            
+        }
+        
+        return cell
+    }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        for ann in mapView.annotations {
+            if (ann as! Location).locationStr == tableView.cellForRow(at: indexPath)!.textLabel!.text {
+                mapView.selectAnnotation(ann, animated: true)
+            }
+            
+        }
+    }
 }

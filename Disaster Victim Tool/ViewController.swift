@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
-    
     @IBOutlet weak var mapButtonView: MenuButtonView!
     
     @IBOutlet weak var mapImageView: UIImageView!

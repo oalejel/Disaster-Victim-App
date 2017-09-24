@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>972690435770-hagc095kr25dks8ec13tf1h0spmdsek6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.972690435770-hagc095kr25dks8ec13tf1h0spmdsek6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBaw4CJ1iY_Ff_SRV6mEl4NYn-a5apBIuA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>972690435770</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>omaralejel.Disaster-Victim-Tool</string>
+	<key>PROJECT_ID</key>
+	<string>mhax-98c1b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mhax-98c1b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:972690435770:ios:15bd0e118705c508</string>
+	<key>DATABASE_URL</key>
+	<string>https://mhax-98c1b.firebaseio.com</string>
+</dict>
+</plist>

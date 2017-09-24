@@ -17,7 +17,6 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     var didLayoutSubviews = false
     var didAppear = false
     
-    @IBOutlet weak var skipButton: SqueezeButton!
     let bounds = UIScreen.main.bounds
     
     @IBOutlet var countryTextField: UITextField!
@@ -66,8 +65,6 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         
         inputLabel.alpha = 0
         
-        skipButton.setBordered()
-        skipButton.alpha = 0
         doneButton.alpha = 0
     }
 
@@ -152,7 +149,6 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
                             
                             self.inputLabel.alpha = 1
                             
-                            self.skipButton.alpha = 1
                             self.doneButton.alpha = 1
                             
                         }, completion: { (done) in
@@ -167,10 +163,10 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func skipPressed(_ sender: Any) {
-        //TODO
-        performSegue(withIdentifier: "showMainViewController", sender: self)
-    }
+//    @IBAction func skipPressed(_ sender: Any) {
+//        //TODO
+//        performSegue(withIdentifier: "showMainViewController", sender: self)
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
@@ -200,7 +196,8 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     */
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return true
+        return (state != "" && country != "" && city != "")
+        
     }
 
 }
