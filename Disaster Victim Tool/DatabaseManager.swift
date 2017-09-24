@@ -16,6 +16,13 @@ struct UtilityRating {
     var hasWater = false
 }
 
+struct PersonActivity {
+    var name = ""
+    var status = 2
+    var location = ""
+}
+
+
 @objc class DatabaseManager: NSObject {
     @objc static let sharedInstance: DatabaseManager! = DatabaseManager()
     //do not use this in student mode – you should eventually make this code safer
@@ -23,11 +30,10 @@ struct UtilityRating {
     var ref: DatabaseReference!
     var transcriptDict: [String:String] = [:]
     
-
-
     var mapController: VictimsMapViewController?
     
     var locationsRatings: [String:UtilityRating] = [:]
+    var peopleActivities: [String:PersonActivity] = [:]
     
     override init() {
         ref = Database.database().reference()
@@ -36,6 +42,8 @@ struct UtilityRating {
     @objc public func clearSession() {
         //TODO
     }
+    
+
     
     func setupDatabaseListener(buildings: Bool) {
         if buildings {
@@ -107,37 +115,37 @@ struct UtilityRating {
                     print(citiesDict)
                     if let phoneNumbersDict = citiesDict.object(forKey: city.lowercased()) as? NSDictionary {
                         print(phoneNumbersDict)
-                        if let sublocationNames = phoneNumbersDict.allKeys as? [String] {
-                            print(sublocationNames)
-                            for sublocation in sublocationNames {
-//                                if let sublocationInfoDict = sublocationsDict[sublocation] as? NSDictionary {
+                        if let phoneNumbers = phoneNumbersDict.allKeys as? [String] {
+                            print(phoneNumbers)
+                            for phoneNum in phoneNumbers {
+                                if let userDict = phoneNumbersDict[phoneNum] as? NSDictionary {
 //                                    if let utilityDict = sublocationInfoDict["utilities"] as? NSDictionary {
-//                                        var rating = UtilityRating()
+                                        var activity = PersonActivity()
 //                                        let locString = "\(sublocation), \(city), \(state), \(country)"
-//                                        if let electricity = utilityDict["electricity"] as? Bool {
-//                                            rating.hasElectricity = electricity
-//                                        }
-//                                        if let food = utilityDict["food"] as? Bool {
-//                                            rating.hasFood = food
-//                                        }
-//                                        if let water = utilityDict["water"] as? Bool {
-//                                            rating.hasWater = water
-//                                        }
-//
-//                                        if self.locationsRatings.index(forKey: locString) != nil {
-//                                            // if it doesnt match exactly, then tell the map controller that there should be an update
-//                                            if !(rating.hasElectricity == self.locationsRatings[locString]?.hasElectricity && rating.hasFood == self.locationsRatings[locString]?.hasFood && rating.hasWater == self.locationsRatings[locString]?.hasWater) {
-//                                                self.locationsRatings[locString] = rating
-//                                                self.mapController?.updateLocationInfo(locationString: locString)
-//                                            } else {
-//                                                //if they are exactly the same, do nothing
-//                                            }
-//                                        } else {
-//                                            self.locationsRatings[locString] = rating
-//                                            self.mapController?.addLocation(locationString: locString)
-//                                        }
+                                        if let location = userDict["location"] as? String {
+                                            activity.location = location
+                                        }
+                                        if let name = userDict["name"] as? String {
+                                            activity.name = name
+                                        }
+                                        if let status = userDict["status"] as? Int {
+                                            activity.status = status
+                                        }
+
+                                        if self.peopleActivities.index(forKey: phoneNum) != nil {
+                                            // if it doesnt match exactly, then tell the map controller that there should be an update
+                                            if !(activity.name == self.peopleActivities[phoneNum]?.name && activity.location == self.peopleActivities[phoneNum]?.location && activity.status == self.peopleActivities[phoneNum]?.status) {
+                                                self.peopleActivities[phoneNum] = activity
+                                                self.mapController?.updatePersonInfo(num: phoneNum)
+                                            } else {
+                                                //if they are exactly the same, do nothing
+                                            }
+                                        } else {
+                                            self.peopleActivities[phoneNum] = activity
+                                            self.mapController?.addPerson(phoneNum: phoneNum)
+                                        }
 //                                    }
-//                                }
+                                }
                             }
                         }
                     }

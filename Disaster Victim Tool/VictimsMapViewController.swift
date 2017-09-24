@@ -50,12 +50,15 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
     
     @IBAction func mapSegmentChanged(_ sender: UISegmentedControl) {
         tableView.reloadData()
-        if sender.selectedSegmentIndex == 1 {
-            mapView.removeAnnotations(mapView.annotations)
-        }
+//        if sender.selectedSegmentIndex == 1 {
+        mapView.removeAnnotations(mapView.annotations)
+        DatabaseManager.sharedInstance.peopleActivities = [:]
+        DatabaseManager.sharedInstance.locationsRatings = [:]
+//        }
         
         DatabaseManager.sharedInstance.setupDatabaseListener(buildings: sender.selectedSegmentIndex == 0)
     }
+    
     func getRegion(fromString str: String, block: @escaping (_ region: MKCoordinateRegion) -> ()) {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(str) { (placemarks, error) in
@@ -94,15 +97,34 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
         
     }
     
+    func addPerson(phoneNum: String) {
+        if filterSegmentControl.selectedSegmentIndex == 1 {
+            let activity = DatabaseManager.sharedInstance.peopleActivities[phoneNum]
+            
+            getRegion(fromString: activity!.location) { (region: MKCoordinateRegion) in
+                let newAnnotation = Location(activity: activity!, coordinate: region.center, phoneNum: phoneNum)
+                print("we now have a region!")
+                DispatchQueue.main.async {
+                    self.mapView.addAnnotation(newAnnotation)
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+           
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is Location {
-            var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationId")
+            var pin: MKPinAnnotationView! = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationId") as! MKPinAnnotationView
             if pin == nil {
                 pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationId")
             }
 
-            pin!.canShowCallout = true
-            pin!.isDraggable = false
+            pin.canShowCallout = true
+            pin.animatesDrop = true
+            pin.isDraggable = false
 
             return pin
         }
@@ -114,6 +136,10 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
 //    }
     
     func updateLocationInfo(locationString: String) {
+        
+    }
+    
+    func updatePersonInfo(num: String) {
         
     }
     
@@ -133,7 +159,7 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
         if filterSegmentControl.selectedSegmentIndex == 0 {
             return DatabaseManager.sharedInstance.locationsRatings.count
         } else {
-            return 0 // change
+            return DatabaseManager.sharedInstance.peopleActivities.count 
         }
     }
     
@@ -148,7 +174,20 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
             let text = Array(DatabaseManager.sharedInstance.locationsRatings.keys)[indexPath.row]
             cell.textLabel?.text = text
         } else {
+            let phoneNum = Array(DatabaseManager.sharedInstance.peopleActivities.keys)[indexPath.row]
+            //unsafe setup, but the text MUST be organized as "name: number"
             
+            let activity = DatabaseManager.sharedInstance.peopleActivities[phoneNum]!
+            var safetyLevel = ""
+            if activity.status == 0 {
+                safetyLevel = "Unsafe"
+            } else if activity.status == 1 {
+                safetyLevel = "Safe"
+            } else {
+                safetyLevel = "Safety Uknown"
+            }
+            let text = "\(activity.name), #: \(phoneNum), [\(safetyLevel)]"
+            cell.textLabel?.text = text
         }
         
         return cell
@@ -158,7 +197,7 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         
         for ann in mapView.annotations {
-            if (ann as! Location).locationStr == tableView.cellForRow(at: indexPath)!.textLabel!.text {
+            if (ann as! Location).identifierString == tableView.cellForRow(at: indexPath)!.textLabel!.text {
                 mapView.selectAnnotation(ann, animated: true)
             }
             

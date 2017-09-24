@@ -15,9 +15,28 @@ class Location: NSObject, MKAnnotation {
     var title: String?
     var subtitle: String?
     
-    var locationStr = ""
+    var identifierString = ""
 
 //    public var coordinate: CLLocationCoordinate2D
+    
+    init(activity: PersonActivity, coordinate coord: CLLocationCoordinate2D, phoneNum: String) {
+        self.coordinate = coord
+        
+        var safetyLevel = ""
+        var safetyEmoji = " 🗣"
+        if activity.status == 0 {
+            safetyLevel = "Unsafe"
+        } else if activity.status == 1 {
+            safetyLevel = "Safe"
+            safetyEmoji 
+        } else {
+            safetyLevel = "Safety Uknown"
+        }
+        
+        title = activity.name +
+        
+        identifierString = "\(activity.name), #: \(phoneNum), [\(safetyLevel)]"
+    }
     
     init(ranking: UtilityRating, coordinate coord: CLLocationCoordinate2D, locStr: String) {
         self.coordinate = coord
@@ -28,7 +47,7 @@ class Location: NSObject, MKAnnotation {
         if ranking.hasFood {t += "🍪"}
         title = t
         
-        locationStr = locStr
+        identifierString = locStr
         
         super.init()
     }
