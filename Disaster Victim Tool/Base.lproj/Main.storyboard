@@ -167,18 +167,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxz-yu-znd" customClass="SqueezeButton" customModule="Disaster_Victim_Tool" customModuleProvider="target">
+                                <rect key="frame" x="16" y="602" width="101" height="45"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ZrS-yt-bQF"/>
+                                    <constraint firstAttribute="width" constant="101" id="oJP-of-10z"/>
+                                </constraints>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.93586832279999999" green="0.15495780109999999" blue="0.15751126409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearPressed:" destination="P9f-eX-enS" eventType="touchUpInside" id="MVe-wx-61A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CzO-nH-r9P" firstAttribute="height" secondItem="Kyj-QD-OAm" secondAttribute="height" id="1cr-aw-MmF"/>
                             <constraint firstItem="7MF-ZR-z36" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="4so-AB-Ouo"/>
                             <constraint firstItem="FjA-IZ-MLe" firstAttribute="centerX" secondItem="ioy-UJ-QX5" secondAttribute="centerX" id="6aH-yh-NQH"/>
+                            <constraint firstItem="ioy-UJ-QX5" firstAttribute="bottom" secondItem="Yxz-yu-znd" secondAttribute="bottom" constant="20" id="AGG-96-blT"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="y1o-gk-Ner" secondAttribute="trailing" constant="16" id="AJf-8d-zM6"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="bottom" secondItem="R0p-v8-9ze" secondAttribute="bottom" constant="20" id="DJN-PN-vFn"/>
                             <constraint firstItem="Kyj-QD-OAm" firstAttribute="top" secondItem="FjA-IZ-MLe" secondAttribute="bottom" constant="24" id="FUR-1W-tKf"/>
                             <constraint firstItem="FjA-IZ-MLe" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="HfM-rH-Ob0"/>
                             <constraint firstItem="Kyj-QD-OAm" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="IA1-MP-G3x"/>
                             <constraint firstItem="FjA-IZ-MLe" firstAttribute="top" secondItem="7MF-ZR-z36" secondAttribute="bottom" constant="16" id="JK2-Pp-pfZ"/>
+                            <constraint firstItem="Yxz-yu-znd" firstAttribute="leading" secondItem="ioy-UJ-QX5" secondAttribute="leading" constant="16" id="NbO-H0-UVy"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="R0p-v8-9ze" secondAttribute="trailing" constant="16" id="ZTt-ry-PK9"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="bottom" secondItem="CzO-nH-r9P" secondAttribute="bottom" constant="334" id="ZmU-Sz-ppW"/>
                             <constraint firstItem="ioy-UJ-QX5" firstAttribute="trailing" secondItem="CzO-nH-r9P" secondAttribute="trailing" constant="16" id="avH-P9-DFf"/>
@@ -194,6 +210,7 @@
                     </view>
                     <connections>
                         <outlet property="cityTextField" destination="CzO-nH-r9P" id="CKq-4d-LFL"/>
+                        <outlet property="clearButton" destination="Yxz-yu-znd" id="0Vs-za-Im0"/>
                         <outlet property="contextTextField" destination="y1o-gk-Ner" id="eA3-nu-SQp"/>
                         <outlet property="countryTextField" destination="FjA-IZ-MLe" id="SLE-ds-7PI"/>
                         <outlet property="doneButton" destination="R0p-v8-9ze" id="gph-qx-g7D"/>

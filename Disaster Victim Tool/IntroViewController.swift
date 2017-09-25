@@ -14,6 +14,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     var heartImageView3: UIImageView = createHeartImageView()
     var heartImageView4: UIImageView = createHeartImageView()
     
+    @IBOutlet weak var clearButton: SqueezeButton!
     var didLayoutSubviews = false
     var didAppear = false
     
@@ -66,6 +67,9 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         inputLabel.alpha = 0
         
         doneButton.alpha = 0
+        
+        clearButton.setBordered()
+        clearButton.alpha = 0
     }
 
     
@@ -150,6 +154,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
                             self.inputLabel.alpha = 1
                             
                             self.doneButton.alpha = 1
+                            self.clearButton.alpha = 1
                             
                         }, completion: { (done) in
                             
@@ -161,7 +166,6 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         }
         didAppear = true
     }
-    
     
 //    @IBAction func skipPressed(_ sender: Any) {
 //        //TODO
@@ -178,10 +182,14 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        city = cityTextField.text!
-        country = countryTextField.text!
-        state = stateTextField.text!
-        context = contextTextField.text!
+        DatabaseManager.sharedInstance.locationsRatings = [:]
+        DatabaseManager.sharedInstance.peopleActivities = [:]
+        
+        city = cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        country = countryTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        state = stateTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        context = contextTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         saveSettings()
     }
     
@@ -197,7 +205,13 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return (state != "" && country != "" && city != "")
-        
     }
 
+    @IBAction func clearPressed(_ sender: Any) {
+        cityTextField.text = ""
+        stateTextField.text = ""
+        countryTextField.text = ""
+        contextTextField.text = ""
+    }
+    
 }

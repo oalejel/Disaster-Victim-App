@@ -77,6 +77,7 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
 
     @IBAction func backPressed(_ sender: Any) {
         DatabaseManager.sharedInstance.mapController = nil
+        DatabaseManager.sharedInstance.ref.removeAllObservers()
     }
 
     func addLocation(locationString: String) {
@@ -103,7 +104,7 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
             
             getRegion(fromString: activity!.location) { (region: MKCoordinateRegion) in
                 let newAnnotation = Location(activity: activity!, coordinate: region.center, phoneNum: phoneNum)
-                print("we now have a region!")
+                print("we now have a person's location about to go in!")
                 DispatchQueue.main.async {
                     self.mapView.addAnnotation(newAnnotation)
                 }
@@ -153,7 +154,7 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
     }
     */
     
-    //////// TABLES
+    ///// TABLES
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filterSegmentControl.selectedSegmentIndex == 0 {
@@ -169,25 +170,31 @@ class VictimsMapViewController: UIViewController, MKMapViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.textLabel?.text = ""
         if filterSegmentControl.selectedSegmentIndex == 0 {
-            //buildings mode
-            let text = Array(DatabaseManager.sharedInstance.locationsRatings.keys)[indexPath.row]
-            cell.textLabel?.text = text
-        } else {
-            let phoneNum = Array(DatabaseManager.sharedInstance.peopleActivities.keys)[indexPath.row]
-            //unsafe setup, but the text MUST be organized as "name: number"
-            
-            let activity = DatabaseManager.sharedInstance.peopleActivities[phoneNum]!
-            var safetyLevel = ""
-            if activity.status == 0 {
-                safetyLevel = "Unsafe"
-            } else if activity.status == 1 {
-                safetyLevel = "Safe"
-            } else {
-                safetyLevel = "Safety Uknown"
+            if indexPath.row < DatabaseManager.sharedInstance.locationsRatings.count {
+                //buildings mode
+                let text = Array(DatabaseManager.sharedInstance.locationsRatings.keys)[indexPath.row]
+                cell.textLabel?.text = text
             }
-            let text = "\(activity.name), #: \(phoneNum), [\(safetyLevel)]"
-            cell.textLabel?.text = text
+        } else {
+            if indexPath.row < DatabaseManager.sharedInstance.peopleActivities.count {
+                let phoneNum = Array(DatabaseManager.sharedInstance.peopleActivities.keys)[indexPath.row]
+                //unsafe setup, but the text MUST be organized as "name: number"
+                
+                let activity = DatabaseManager.sharedInstance.peopleActivities[phoneNum]!
+                var safetyLevel = ""
+                if activity.status == 0 {
+                    safetyLevel = "Unsafe"
+                } else if activity.status == 1 {
+                    safetyLevel = "Safe"
+                } else {
+                    safetyLevel = "Safety Uknown"
+                }
+                let text = "\(activity.name), #: \(phoneNum), [\(safetyLevel)]"
+                cell.textLabel?.text = text
+            }
+            
         }
         
         return cell

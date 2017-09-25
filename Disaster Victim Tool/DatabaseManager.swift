@@ -51,7 +51,7 @@ struct PersonActivity {
                 
                 if let citiesDict = (snapshot.value as? NSDictionary) {
                     print("first item in single time snapshot: ")
-                    print(citiesDict)
+                    print(citiesDict.allKeys)
                     if let sublocationsDict = citiesDict.object(forKey: city.lowercased()) as? NSDictionary {
                         print(sublocationsDict)
                         if let sublocationNames = sublocationsDict.allKeys as? [String] {
@@ -92,22 +92,6 @@ struct PersonActivity {
             })
         } else {
             //if we're listening for changes to people in the area...
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             ref.child("DataType").child("People").child(state.lowercased()).observe(.value, with: { (snapshot) in
                 
                 if let citiesDict = (snapshot.value as? NSDictionary) {
@@ -134,7 +118,8 @@ struct PersonActivity {
 
                                         if self.peopleActivities.index(forKey: phoneNum) != nil {
                                             // if it doesnt match exactly, then tell the map controller that there should be an update
-                                            if !(activity.name == self.peopleActivities[phoneNum]?.name && activity.location == self.peopleActivities[phoneNum]?.location && activity.status == self.peopleActivities[phoneNum]?.status) {
+                                            if !(activity.name == self.peopleActivities[phoneNum]?.name && (activity.location == self.peopleActivities[phoneNum]?.location) && activity.status == self.peopleActivities[phoneNum]?.status) {
+                                                
                                                 self.peopleActivities[phoneNum] = activity
                                                 self.mapController?.updatePersonInfo(num: phoneNum)
                                             } else {
@@ -151,29 +136,6 @@ struct PersonActivity {
                     }
                 }
             })
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     }
 }

@@ -28,12 +28,12 @@ class Location: NSObject, MKAnnotation {
             safetyLevel = "Unsafe"
         } else if activity.status == 1 {
             safetyLevel = "Safe"
-            safetyEmoji 
+            safetyEmoji = " ✅"
         } else {
             safetyLevel = "Safety Uknown"
         }
         
-        title = activity.name +
+        title = activity.name + safetyEmoji
         
         identifierString = "\(activity.name), #: \(phoneNum), [\(safetyLevel)]"
     }
